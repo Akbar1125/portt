@@ -1,0 +1,287 @@
+/* Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body and General Layout */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #5e4b8b, #b4a0e7); /* Soft purple gradient */
+    color: #ffffff; /* White text for better contrast */
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    transition: background 0.3s ease-in-out;
+    padding: 20px; /* Add padding for more space around content */
+    line-height: 1.6; /* Adjust line-height for better text readability */
+  }
+  
+  /* Animated gradient blobs */
+  body::before,
+  body::after {
+    content: '';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #f9d8ff, #ab9bff, transparent 70%);
+    z-index: -1;
+    opacity: 0.15;
+    filter: blur(80px);
+    animation: moveBlobs 20s infinite ease-in-out;
+  }
+  
+  @keyframes moveBlobs {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-200px, 200px);
+    }
+  }
+  
+  /* Glass Card Style */
+  section {
+    background: rgba(0, 0, 0, 0.3); /* Darker background for better contrast */
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+    margin-bottom: 2rem; /* Space at the bottom of each section */
+  }
+  
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Fade-In Animation for Section */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    padding: 4rem 1rem 2rem;
+    background: transparent;
+    animation: slideUp 1.5s ease-out forwards;
+    margin-bottom: 2rem; /* Space at the bottom of the header */
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .profile-img:hover {
+    transform: scale(1.1);
+  }
+  
+  header h1 {
+    font-size: 3rem;
+    color: #ffffff; /* White for contrast */
+    margin-bottom: 0.5rem; /* Space under the header title */
+  }
+  
+  header h1 span {
+    color: #FDB0C0; /* Soft pink for emphasis */
+  }
+  
+  .slogan {
+    font-style: italic;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: #AA336A; /* Light purple for accent */
+    margin-bottom: 2rem; /* Space below the slogan */
+  }
+  
+  nav {
+    margin-top: 2rem;
+    animation: fadeInUp 1.5s ease-out forwards;
+    margin-bottom: 2rem; /* Space below the navigation links */
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  nav .nav-link {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #FDB0C0; /* Soft pink */
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  nav .nav-link:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+  }
+  
+  /* Section Titles */
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #f9b7b7; /* Soft pink border */
+    padding-left: 10px;
+    position: relative;
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .section-title:hover {
+    color: #f9b7b7; /* Soft pink on hover */
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FDB0C0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .section-title:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* About Section */
+  blockquote {
+    font-style: italic;
+    padding-left: 1rem;
+    border-left: 3px solid #f9b7b7;
+    margin: 1.5rem 0; /* Increased space above and below the blockquote */
+    color: #e0c1e5; /* Light purple text */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  blockquote:hover {
+    transform: translateX(10px);
+  }
+  
+  /* Skills Section */
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem; /* Increased gap between skill cards */
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 2s ease-out forwards;
+    margin-bottom: 2rem; /* Space below the skills section */
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .card {
+    background: rgba(0, 0, 0, 0.3); /* Darker background for cards */
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    padding: 1.5rem; /* Added padding inside the card */
+    color: #ffffff;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: fadeInUpCard 1.5s ease-out forwards;
+  }
+  
+  @keyframes fadeInUpCard {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 165, 0, 0.2); /* Orange tint on hover */
+  }
+  
+  /* Glowing Button */
+  .button.glow {
+    background: linear-gradient(145deg, #ff6f91, #ff89a1);
+    color: #ffffff;
+    padding: 1rem 2rem; /* Increased padding */
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 2rem; /* Added margin-top for spacing */
+    display: inline-block;
+    box-shadow: 0 0 12px #ff6f91, 0 0 25px #ff6f91;
+    transition: all 0.3s ease;
+  }
+  
+  .button.glow:hover {
+    box-shadow: 0 0 25px #ff6f91, 0 0 45px #ff6f91;
+    transform: translateY(-3px);
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #ff6f91;
+    background: #222;
+    border-top: 1px solid #333;
+    margin-top: 2rem; /* Added space above the footer */
+  }
