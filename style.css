@@ -1,21 +1,21 @@
-/* Reset and Box Sizing */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  /* Body and General Layout */
+
   body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #5e4b8b, #b4a0e7); /* Soft purple gradient */
-    color: #ffffff; /* White text for better contrast */
+    background: linear-gradient(135deg, #5e4b8b, #b4a0e7); 
+    color: #ffffff; 
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
     transition: background 0.3s ease-in-out;
-    padding: 20px; /* Add padding for more space around content */
-    line-height: 1.6; /* Adjust line-height for better text readability */
+    padding: 20px; /
+    line-height: 1.6; /
   }
   
   /* Animated gradient blobs */
